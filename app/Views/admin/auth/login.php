@@ -1,4 +1,4 @@
-<?= $this->extend('admin/layouts/main') ?>
+<?= $this->extend('layouts/public') ?>
 
 <?= $this->section('content') ?>
 <div class="row justify-content-center">

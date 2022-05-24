@@ -37,6 +37,14 @@ $routes->post('/login', 'Admin/Auth/LoginController::login', ['as' => 'postLogin
 
 $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->get('/', 'Admin/HomeController::index', ['as' => 'adminHome']);
+
+    $routes->get('profile', 'Admin/Auth/AdminController::index', ['as' => 'adminProfile']);
+    $routes->post('profile', 'Admin/Auth/AdminController::update', ['as' => 'adminProfileUpdate']);
+
+    $routes->post('password', 'Admin/Auth/AdminController::updatePassword', ['as' => 'adminProfileUpdatePassword']);
+
+    $routes->post('password', 'Admin/Auth/AdminController::updatePassword', ['as' => 'adminProfileUpdatePassword']);
+
     $routes->get('logout', 'Admin/Auth/LoginController::logout', ['as' => 'logout']);
 });
 /*
