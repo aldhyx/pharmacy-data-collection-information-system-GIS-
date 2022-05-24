@@ -47,6 +47,15 @@ class AddPharmaciesTable extends Migration
                 'type'       => 'DATE',
                 'null' => true,
             ],
+            'pharmacist_name'  => [
+                'type'       => 'VARCHAR',
+                'constraint' => 100,
+            ],
+            'pharmacist_sipa_number'  => [
+                'type'       => 'VARCHAR',
+                'constraint' => 100,
+                'null' => true,
+            ]
         ]);
         $this->forge->addKey('id', true);
         $this->forge->addForeignKey('id_districts', 'districts', 'id', 'NO ACTION', 'SET NULL');
