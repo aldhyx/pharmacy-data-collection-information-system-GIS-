@@ -21,7 +21,7 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-$routes->setAutoRoute(true);
+$routes->setAutoRoute(false);
 
 /*
  * --------------------------------------------------------------------
@@ -35,17 +35,20 @@ $routes->get('/', 'Home::index');
 $routes->get('/login', 'Admin/Auth/LoginController::index', ['as' => 'login']);
 $routes->post('/login', 'Admin/Auth/LoginController::login', ['as' => 'postLogin']);
 
-$routes->group('admin', ['filter' => 'auth'], function ($routes) {
-    $routes->get('/', 'Admin/HomeController::index', ['as' => 'adminHome']);
+$routes->group('admin', ['filter' => 'auth', 'namespace' => 'App\Controllers\Admin'], function ($routes) {
+    $routes->get('/', 'HomeController::index', ['as' => 'adminHome']);
+    $routes->group('profile', ['namespace' => 'App\Controllers\Admin\Auth'], function ($routes) {
+        $routes->get('/', 'AdminController::index', ['as' => 'adminProfile']);
+        $routes->post('/', 'AdminController::update', ['as' => 'adminProfileUpdate']);
+        $routes->post('password', 'AdminController::updatePassword', ['as' => 'adminProfileUpdatePassword']);
+        $routes->get('logout', 'LoginController::logout', ['as' => 'logout']);
+    });
 
-    $routes->get('profile', 'Admin/Auth/AdminController::index', ['as' => 'adminProfile']);
-    $routes->post('profile', 'Admin/Auth/AdminController::update', ['as' => 'adminProfileUpdate']);
-
-    $routes->post('password', 'Admin/Auth/AdminController::updatePassword', ['as' => 'adminProfileUpdatePassword']);
-
-    $routes->post('password', 'Admin/Auth/AdminController::updatePassword', ['as' => 'adminProfileUpdatePassword']);
-
-    $routes->get('logout', 'Admin/Auth/LoginController::logout', ['as' => 'logout']);
+    $routes->get('pharmacies', 'PharmaciesController::index', ['as' => 'adminPharmacies']);
+    $routes->post('pharmacies', 'PharmaciesController::store', ['as' => 'adminPharmaciesStore']);
+    $routes->delete('pharmacies/(:num)', 'PharmaciesController::delete/$1', ['as' => 'adminPharmaciesDelete']);
+    $routes->get('pharmacies/(:num)', 'PharmaciesController::update/$1', ['as' => 'adminPharmaciesUpdate']);
+    $routes->get('pharmacies/create', 'PharmaciesController::create', ['as' => 'adminPharmaciesCreate']);
 });
 /*
  * --------------------------------------------------------------------
