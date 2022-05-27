@@ -1,7 +1,7 @@
 <?= $this->extend('layouts/admin') ?>
 
 <?= $this->section('content') ?>
-<div class="row mb-5">
+<div class="row mb-5 px-4 px-lg-0">
     <div class="col-12 py-4 mb-2">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb m-0">
