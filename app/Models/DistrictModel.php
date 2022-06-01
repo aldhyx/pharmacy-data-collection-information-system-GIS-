@@ -10,7 +10,7 @@ class DistrictModel extends Model
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $useSoftDeletes   = false;
-    protected $allowedFields    = ['name'];
+    protected $allowedFields    = ['name', 'total_population'];
 
     protected $createdField  = '';
     protected $updatedField  = '';

@@ -49,6 +49,10 @@ $routes->group('admin', ['filter' => 'auth', 'namespace' => 'App\Controllers\Adm
     $routes->delete('pharmacies/(:num)', 'PharmaciesController::delete/$1', ['as' => 'adminPharmaciesDelete']);
     $routes->get('pharmacies/(:num)', 'PharmaciesController::update/$1', ['as' => 'adminPharmaciesUpdate']);
     $routes->get('pharmacies/create', 'PharmaciesController::create', ['as' => 'adminPharmaciesCreate']);
+
+    $routes->get('districts', 'DistrictsController::index', ['as' => 'adminDistricts']);
+    $routes->get('districts/(:num)', 'DistrictsController::update/$1', ['as' => 'adminDistrictsUpdate']);
+    $routes->post('districts', 'DistrictsController::store', ['as' => 'adminDistrictsStore']);
 });
 /*
  * --------------------------------------------------------------------
