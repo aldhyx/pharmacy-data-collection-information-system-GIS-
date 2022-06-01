@@ -62,9 +62,11 @@
                     </thead>
                     <tbody>
 
-                        <?php foreach ($pharmacies as $pharmacy) : ?>
+                        <?php
+                        $no = 1;
+                        foreach ($pharmacies as $pharmacy) : ?>
                             <tr>
-                                <th>1</th>
+                                <th><?= $no++; ?></th>
                                 <td><?= $pharmacy['district_name']; ?></td>
                                 <td><?= $pharmacy['name']; ?></td>
                                 <td><?= $pharmacy['pharmacist_name']; ?></td>
