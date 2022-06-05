@@ -25,7 +25,7 @@
     <div class="col-12 p-4 bg-body rounded shadow-sm my-2">
 
         <p class="fw-bold fs-5 text-uppercase pb-3 mb-4 border-bottom">
-            Ubah Data Apotek
+            Ubah Data Kecamatan
         </p>
 
         <div class="row g-4">
