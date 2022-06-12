@@ -76,27 +76,15 @@
 
             <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
                     <li class="nav-item p-3">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item p-3 dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
-                        <ul class="dropdown-menu border-0 shadow" aria-labelledby="profileDropdown">
-                            <li><a class="dropdown-item p-3" href="#">Tugas & Fungsi</a></li>
-                            <li><a class="dropdown-item p-3" href="#">Visi & Misi</a></li>
-                            <li><a class="dropdown-item p-3" href="#">Struktur Organisasi</a></li>
-                            <li><a class="dropdown-item p-3" href="#">Program Kerja</a></li>
-                            <li><a class="dropdown-item p-3" href="#">Kontak</a></li>
-                        </ul>
+                        <a class="nav-link active" href="<?= route_to('maps') ?>">Peta</a>
                     </li>
                     <li class="nav-item p-3">
-                        <a class="nav-link" href="#">Peta</a>
+                        <a class="nav-link active" href="<?= route_to('pharmacies') ?>">Apotek</a>
                     </li>
                     <li class="nav-item p-3">
-                        <a class="nav-link" href="#">Apotek</a>
-                    </li>
-                    <li class="nav-item p-3">
-                        <a class="nav-link" href="<?= route_to('login') ?>">Login</a>
+                        <a class="nav-link active" href="<?= route_to('login') ?>">Login</a>
                     </li>
                 </ul>
             </div>
