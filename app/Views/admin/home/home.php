@@ -22,6 +22,20 @@
     .box.red {
         background-color: #c14242;
     }
+
+
+    .map-loading {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        top: 0;
+        left: 0;
+        z-index: 99999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 </style>
 <?= $this->endSection('style') ?>
 
@@ -34,13 +48,30 @@
 
     <div class="col-12 p-4 bg-body rounded shadow-sm align-self-end">
 
-        <p class="fw-bold fs-5 text-uppercase pb-3 mb-4 border-bottom">
-            Peta Penyebaran Apotek di Kota Kupang
-        </p>
+        <div class="row g-0">
+            <div class="col-12">
+                <p class="fw-bold fs-5 text-uppercase pb-3 mb-4 border-bottom">
+                    Peta Tingkat Kepadatan Apotek di Kota Kupang
+                </p>
+            </div>
 
-        <div>
+        </div>
+
+
+        <div class="col-12 mb-3">
+            <div id="maps-container">
+                <div class="map-loading" style="display: none;">
+                    <div class="spinner-border text-body" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="m-0 text-body ms-2 fs-5">Sedang memuat data geojson</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
             <p class="mb-1">Keterangan:</p>
-            <ul class="list-unstyled">
+            <ul class="list-unstyled mb-0">
                 <li>
                     <span class="box green"></span>
                     <span>
@@ -53,12 +84,19 @@
                 </li>
             </ul>
         </div>
-        <div id="maps-container"></div>
     </div>
+
+</div>
 </div>
 <?= $this->endSection('content') ?>
 <?= $this->section('script') ?>
 <script>
+    $('.map-loading').show();
+
+    setTimeout(function() {
+        $('.map-loading').remove();
+    }, 3000);
+
     let districtGeo = <?= json_encode($geojson)  ?>;
 
     let map = L.map('maps-container', {}).setView([-10.178757, 123.597603], 12);
