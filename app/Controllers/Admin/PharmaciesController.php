@@ -15,7 +15,7 @@ class PharmaciesController extends BaseController
     }
     public function index()
     {
-        $pharmacies = $this->model->joinWithDistrict();
+        $pharmacies = $this->model->getWithDistricts()->getResultArray();
 
         return view('admin/pharmacies/pharmacies', [
             'pharmacies' => $pharmacies

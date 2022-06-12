@@ -16,17 +16,25 @@ class DistrictModel extends Model
     protected $updatedField  = '';
     protected $deletedField  = '';
 
-    public function getWithTotalPharmacies()
+    public function getWithTotalPharmacies($did = null)
     {
 
         // Manual query
         // $builder =  $this->db->query("SELECT districts.*, count(pharmacies.id_districts) FROM districts LEFT JOIN pharmacies ON districts.id = pharmacies.id_districts GROUP BY districts.id");
         // $query = $builder->getResultArray();
         $builder = $this->db->table("districts");
-        $query = $builder->select("districts.*")
-            ->selectCount("pharmacies.id_districts", "total_pharmacies")
-            ->join('pharmacies', 'pharmacies.id_districts = districts.id', 'LEFT')
-            ->groupBy('districts.id');
+        if ($did == null) {
+            $query = $builder->select("districts.*")
+                ->selectCount("pharmacies.id_districts", "total_pharmacies")
+                ->join('pharmacies', 'pharmacies.id_districts = districts.id', 'LEFT')
+                ->groupBy('districts.id');
+        } else {
+            $query = $builder->select("districts.*")
+                ->where('districts.id', $did)
+                ->selectCount("pharmacies.id_districts", "total_pharmacies")
+                ->join('pharmacies', 'pharmacies.id_districts = districts.id', 'LEFT')
+                ->groupBy('districts.id');
+        }
 
         return $query->get();
     }

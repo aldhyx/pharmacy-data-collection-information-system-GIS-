@@ -26,12 +26,18 @@ class PharmaciesModel extends Model
     protected $updatedField  = '';
     protected $deletedField  = '';
 
-    public function joinWithDistrict()
+    public function getWithDistricts($keywords = null)
     {
-        $builder =  $this->db->table('pharmacies')
-            ->select('pharmacies.*, districts.name as district_name')
-            ->join('districts', 'districts.id = pharmacies.id_districts');
-        $query = $builder->get();
-        return $query->getResultArray();
+        $builder =  $this->db->table('pharmacies');
+        if (!$keywords) {
+            $query = $builder->select('pharmacies.*, districts.name as district_name')
+                ->join('districts', 'districts.id = pharmacies.id_districts');
+            return $query->get();
+        } else {
+            $query = $builder->select('pharmacies.*, districts.name as district_name')
+                ->like('pharmacies.name', $keywords, 'both')
+                ->join('districts', 'districts.id = pharmacies.id_districts');
+            return $query->get();
+        }
     }
 }
