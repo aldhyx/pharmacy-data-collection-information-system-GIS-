@@ -45,7 +45,7 @@
         <div class="row g-0">
             <div class="col-12">
                 <p class="fw-bold fs-5 text-uppercase pb-3 mb-4 border-bottom">
-                    Peta Tingkat Kepadatan Apotek di Kota Kupang
+                    Peta Persebaran Apotek di Kota Kupang
                 </p>
             </div>
 
