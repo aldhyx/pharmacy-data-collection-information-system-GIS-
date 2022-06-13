@@ -103,6 +103,8 @@
     }, 3000);
 
     let districtGeo = <?= json_encode($geojson)  ?>;
+    let pharmaciesData = <?= json_encode($pharmacies)  ?>;
+
 
     let map = L.map('maps-container', {}).setView([-10.178757, 123.597603], 12);
 
@@ -137,6 +139,18 @@
         return green;
     }
 
+    if (pharmaciesData && Array.isArray(pharmaciesData) && pharmaciesData.length) {
+        for (let index in pharmaciesData) {
+            const latitude = pharmaciesData[index].latitude;
+            const longitude = pharmaciesData[index].longitude;
+            const name = pharmaciesData[index].name;
+            L.marker([latitude, longitude], {
+                title: name,
+                alt: name,
+            }).addTo(map).bindPopup("Apotek <span>" + name + "</span>");
+        }
+    }
+
     if (districtGeo && Array.isArray(districtGeo) && districtGeo.length) {
         for (let index in districtGeo) {
             // console.log(districtGeo[index]);
@@ -163,13 +177,13 @@
 
     $('#districts').on('change', function(e) {
         const val = e.target.value;
-        console.log("🚀 ~ file: maps.php ~ line 139 ~ $ ~ val", val)
+
         if (val !== 'all' && Number(val)) {
             window.location.href = window.location.origin + window.location.pathname + '?did=' + val;
         } else {
             window.location.href = window.location.origin + window.location.pathname;
 
         }
-    })
+    });
 </script>
 <?= $this->endSection('script') ?>

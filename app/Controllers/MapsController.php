@@ -3,12 +3,14 @@
 namespace App\Controllers;
 
 use App\Models\DistrictModel;
+use App\Models\PharmaciesModel;
 
 class MapsController extends BaseController
 {
     public  function __construct()
     {
         $this->model = new DistrictModel();
+        $this->modelPharmacies = new PharmaciesModel();
     }
     public function index()
     {
@@ -20,10 +22,12 @@ class MapsController extends BaseController
         }
 
         $districts = $this->model->findAll();
+        $pharmacies = $this->modelPharmacies->findAll();
 
         return view('maps/maps', [
             'geojson' => $districtData,
             'districts' => $districts,
+            'pharmacies' => $pharmacies,
             'did' => $did
         ]);
     }

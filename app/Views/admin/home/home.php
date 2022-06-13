@@ -98,6 +98,7 @@
     }, 3000);
 
     let districtGeo = <?= json_encode($geojson)  ?>;
+    let pharmaciesData = <?= json_encode($pharmacies)  ?>;
 
     let map = L.map('maps-container', {}).setView([-10.178757, 123.597603], 12);
 
@@ -131,6 +132,20 @@
         if (result > standard) return red;
         return green;
     }
+
+
+    if (pharmaciesData && Array.isArray(pharmaciesData) && pharmaciesData.length) {
+        for (let index in pharmaciesData) {
+            const latitude = pharmaciesData[index].latitude;
+            const longitude = pharmaciesData[index].longitude;
+            const name = pharmaciesData[index].name;
+            L.marker([latitude, longitude], {
+                title: name,
+                alt: name,
+            }).addTo(map).bindPopup("Apotek <span>" + name + "</span>");
+        }
+    }
+
 
     if (districtGeo && Array.isArray(districtGeo) && districtGeo.length) {
         for (let index in districtGeo) {
