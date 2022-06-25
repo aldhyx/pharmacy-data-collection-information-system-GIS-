@@ -139,10 +139,12 @@
             const latitude = pharmaciesData[index].latitude;
             const longitude = pharmaciesData[index].longitude;
             const name = pharmaciesData[index].name;
+            const address = pharmaciesData[index].address || '-';
+            const pharmacist_name = pharmaciesData[index].pharmacist_name || '-';
             L.marker([latitude, longitude], {
                 title: name,
                 alt: name,
-            }).addTo(map).bindPopup("Apotek <span>" + name + "</span>");
+            }).addTo(map).bindPopup("<b>Apotek " + name + "</b> <p>Apoteker: " + pharmacist_name + "</p> <p>Alamat: " + address + "</p>");
         }
     }
 
