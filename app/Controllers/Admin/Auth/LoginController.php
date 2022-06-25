@@ -9,7 +9,9 @@ class LoginController extends BaseController
 {
     public function index()
     {
-        return view('admin/auth/login');
+        return view('admin/auth/login', [
+            'page' => 'login',
+        ]);
     }
 
     public function login()

@@ -17,7 +17,9 @@ class AdminController extends BaseController
     {
         $id = $this->session->get('id');
         $data = $this->model->find($id);
-        return view('admin/auth/profile', ['admin' => $data]);
+        return view('admin/auth/profile', [
+            'page' => 'admin', 'admin' => $data
+        ]);
     }
 
     public function update()

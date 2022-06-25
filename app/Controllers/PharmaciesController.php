@@ -19,6 +19,7 @@ class PharmaciesController extends BaseController
         $pharmacies = $this->model->getWithDistricts($keywords)->getResultArray();
 
         return view('pharmacies/pharmacies', [
+            'page' => 'pharmacies',
             'pharmacies' => $pharmacies,
             'keywords' => $keywords
         ]);

@@ -26,6 +26,7 @@ class HomeController extends BaseController
         $pharmacies = $this->modelPharmacies->findAll();
 
         return view('admin/home/home', [
+            'page' => 'home',
             'geojson' => $districtData,
             'pharmacies' => $pharmacies,
             'districts' => $districts,

@@ -25,6 +25,7 @@ class MapsController extends BaseController
         $pharmacies = $this->modelPharmacies->findAll();
 
         return view('maps/maps', [
+            'page' => 'maps',
             'geojson' => $districtData,
             'districts' => $districts,
             'pharmacies' => $pharmacies,

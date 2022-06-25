@@ -64,6 +64,12 @@
             border-color: #ced4da;
             box-shadow: none;
         }
+
+        .nav-link.active {
+            color: #fff !important;
+            background: #2880ca;
+            border-radius: 5px;
+        }
     </style>
 </head>
 
@@ -79,19 +85,19 @@
             <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item p-3">
-                        <a class="nav-link active" aria-current="page" href="<?= route_to('adminHome') ?>">Home</a>
+                        <a class="nav-link <?= $page == 'home' ? 'active' : ''; ?>" aria-current="page" href="<?= route_to('adminHome') ?>">Home</a>
                     </li>
                     <li class="nav-item p-3">
-                        <a class="nav-link active" href="<?= route_to('adminProfile') ?>">Admin</a>
+                        <a class="nav-link <?= $page == 'admin' ? 'active' : ''; ?>" href="<?= route_to('adminProfile') ?>">Admin</a>
                     </li>
                     <li class="nav-item p-3">
-                        <a class="nav-link active" href="<?= route_to('adminDistricts') ?>">Kecamatan</a>
+                        <a class="nav-link <?= $page == 'districts' ? 'active' : ''; ?>" href="<?= route_to('adminDistricts') ?>">Kecamatan</a>
                     </li>
                     <li class="nav-item p-3">
-                        <a class="nav-link active" href="<?= route_to('adminPharmacies') ?>">Apotek</a>
+                        <a class="nav-link <?= $page == 'pharmacies' ? 'active' : ''; ?>" href="<?= route_to('adminPharmacies') ?>">Apotek</a>
                     </li>
                     <li class="nav-item p-3">
-                        <a class="nav-link active" href="<?= route_to('logout') ?>">Logout</a>
+                        <a class="nav-link" href="<?= route_to('logout') ?>">Logout</a>
                     </li>
                 </ul>
             </div>

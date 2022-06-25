@@ -25,6 +25,12 @@
                 font-size: 3.5rem;
             }
         }
+
+        .nav-link.active {
+            color: #fff !important;
+            background: #2880ca;
+            border-radius: 5px;
+        }
     </style>
 
     <link href="<?= base_url() ?>/assets/css/offcanvas.css" rel="stylesheet">
@@ -78,13 +84,13 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                     <li class="nav-item p-3">
-                        <a class="nav-link active" href="<?= route_to('maps') ?>">Peta</a>
+                        <a class="nav-link <?= $page == 'maps' ? 'active' : ''; ?>" href="<?= route_to('maps') ?>">Peta</a>
                     </li>
                     <li class="nav-item p-3">
-                        <a class="nav-link active" href="<?= route_to('pharmacies') ?>">Apotek</a>
+                        <a class="nav-link <?= $page == 'pharmacies' ? 'active' : ''; ?>" href="<?= route_to('pharmacies') ?>">Apotek</a>
                     </li>
                     <li class="nav-item p-3">
-                        <a class="nav-link active" href="<?= route_to('login') ?>">Login</a>
+                        <a class="nav-link <?= $page == 'login' ? 'active' : ''; ?>" href="<?= route_to('login') ?>">Login</a>
                     </li>
                 </ul>
             </div>

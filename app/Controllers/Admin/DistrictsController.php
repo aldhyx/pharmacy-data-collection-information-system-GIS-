@@ -17,6 +17,7 @@ class DistrictsController extends BaseController
         $districts = $this->model->findAll();
 
         return view('admin/districts/districts', [
+            'page' => 'districts',
             'districts' => $districts
         ]);
     }
@@ -28,6 +29,7 @@ class DistrictsController extends BaseController
         return view(
             'admin/districts/districts_update',
             [
+                'page' => 'districts',
                 'district' => $districtData
             ]
         );

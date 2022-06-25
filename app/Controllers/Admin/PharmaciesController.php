@@ -18,6 +18,7 @@ class PharmaciesController extends BaseController
         $pharmacies = $this->model->getWithDistricts()->getResultArray();
 
         return view('admin/pharmacies/pharmacies', [
+            'page' => 'pharmacies',
             'pharmacies' => $pharmacies
         ]);
     }
@@ -28,6 +29,7 @@ class PharmaciesController extends BaseController
         $districtData = $districtModel->findAll();
 
         return view('admin/pharmacies/pharmacies_create', [
+            'page' => 'pharmacies',
             'districts' => $districtData
         ]);
     }
@@ -53,6 +55,7 @@ class PharmaciesController extends BaseController
         return view(
             'admin/pharmacies/pharmacies_update',
             [
+                'page' => 'pharmacies',
                 'districts' => $districtData,
                 'pharmacy' => $pharmacyData
             ]
