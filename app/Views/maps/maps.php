@@ -138,6 +138,15 @@
         return green;
     }
 
+    const myIcon = {
+        1: "<?= base_url('/assets/icons/marker-black.png')  ?>",
+        2: "<?= base_url('/assets/icons/marker-blue.png')  ?>",
+        3: "<?= base_url('/assets/icons/marker-grey.png')  ?>",
+        4: "<?= base_url('/assets/icons/marker-orange.png')  ?>",
+        5: "<?= base_url('/assets/icons/marker-purple.png')  ?>",
+        6: "<?= base_url('/assets/icons/marker-yellow.png')  ?>",
+    };
+
     if (pharmaciesData && Array.isArray(pharmaciesData) && pharmaciesData.length) {
         for (let index in pharmaciesData) {
             const latitude = pharmaciesData[index].latitude;
@@ -145,9 +154,15 @@
             const name = pharmaciesData[index].name;
             const address = pharmaciesData[index].address || '-';
             const pharmacist_name = pharmaciesData[index].pharmacist_name || '-';
+            const id_districts = pharmaciesData[index].id_districts || "<?= base_url('/assets/icons/marker-yellow.png')  ?>";
+
             L.marker([latitude, longitude], {
                 title: name,
                 alt: name,
+                icon: L.icon({
+                    iconUrl: myIcon[id_districts],
+                    iconSize: [48, 48],
+                })
             }).addTo(map).bindPopup("<b>Apotek " + name + "</b> <p>Apoteker: " + pharmacist_name + "</p> <p>Alamat: " + address + "</p>");
         }
     }
