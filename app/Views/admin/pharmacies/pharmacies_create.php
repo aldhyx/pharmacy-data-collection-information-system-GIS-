@@ -53,16 +53,16 @@
                     </div>
 
                     <div class="mb-3 row">
-                        <label for="" class="col-md-4 col-form-label">Nama Apoteker</label>
+                        <label for="" class="col-md-4 col-form-label">No. SIPA</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" id="" value="" required name="pharmacist_name">
+                            <input type="text" class="form-control" id="" value="" required name="sipa_number">
                         </div>
                     </div>
 
                     <div class="mb-3 row">
-                        <label for="" class="col-md-4 col-form-label">No. SIPA</label>
+                        <label for="" class="col-md-4 col-form-label">Nama Apoteker</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" id="" value="" required name="pharmacist_sipa_number">
+                            <input type="text" class="form-control" id="" value="" required name="pharmacist_name">
                         </div>
                     </div>
 
@@ -74,9 +74,9 @@
                     </div>
 
                     <div class="mb-3 row">
-                        <label for="" class="col-md-4 col-form-label">Berakhir Izin - SIA</label>
+                        <label for="" class="col-md-4 col-form-label">Berakhir Izin - SIPA</label>
                         <div class="col-md-8">
-                            <input type="date" class="form-control" id="" value="" required name="sia_expiration_date">
+                            <input type="date" class="form-control" id="" value="" required name="sipa_expiration_date">
                         </div>
                     </div>
 

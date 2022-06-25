@@ -43,19 +43,19 @@ class AddPharmaciesTable extends Migration
                 'constraint' => 100,
                 'null' => true,
             ],
-            'sia_expiration_date'  => [
-                'type'       => 'DATE',
-                'null' => true,
-            ],
             'pharmacist_name'  => [
                 'type'       => 'VARCHAR',
                 'constraint' => 100,
             ],
-            'pharmacist_sipa_number'  => [
+            'sipa_number'  => [
                 'type'       => 'VARCHAR',
                 'constraint' => 100,
                 'null' => true,
-            ]
+            ],
+            'sipa_expiration_date'  => [
+                'type'       => 'DATE',
+                'null' => true,
+            ],
         ]);
         $this->forge->addKey('id', true);
         $this->forge->addForeignKey('id_districts', 'districts', 'id', 'NO ACTION', 'SET NULL');

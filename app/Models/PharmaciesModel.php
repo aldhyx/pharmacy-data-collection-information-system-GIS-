@@ -17,9 +17,9 @@ class PharmaciesModel extends Model
         'longitude',
         'latitude',
         'sia_number',
-        'sia_expiration_date',
+        'sipa_expiration_date',
         'pharmacist_name',
-        'pharmacist_sipa_number',
+        'sipa_number',
     ];
 
     protected $createdField  = '';

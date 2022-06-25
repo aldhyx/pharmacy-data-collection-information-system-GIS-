@@ -50,10 +50,10 @@
                             <th scope="col">No.</th>
                             <th scope="col">Kecamatan</th>
                             <th scope="col">Nama Apotek</th>
+                            <th scope="col">No. SIA</th>
                             <th scope="col">Nama Apoteker</th>
                             <th scope="col">No. SIPA</th>
-                            <th scope="col">No. SIA</th>
-                            <th scope="col">Berakhir Izin</th>
+                            <th scope="col">Berakhir Izin SIPA</th>
                             <th scope="col">Alamat</th>
                             <th scope="col">Longitude</th>
                             <th scope="col">Latitude</th>
@@ -69,10 +69,10 @@
                                 <th><?= $no++; ?></th>
                                 <td><?= $pharmacy['district_name']; ?></td>
                                 <td><?= $pharmacy['name']; ?></td>
-                                <td><?= $pharmacy['pharmacist_name']; ?></td>
-                                <td><?= $pharmacy['pharmacist_sipa_number']; ?></td>
                                 <td><?= $pharmacy['sia_number']; ?></td>
-                                <td><?= $pharmacy['sia_expiration_date']; ?></td>
+                                <td><?= $pharmacy['pharmacist_name']; ?></td>
+                                <td><?= $pharmacy['sipa_number']; ?></td>
+                                <td><?= $pharmacy['sipa_expiration_date']; ?></td>
                                 <td><?= $pharmacy['address']; ?></td>
                                 <td><?= $pharmacy['longitude']; ?></td>
                                 <td><?= $pharmacy['latitude']; ?></td>

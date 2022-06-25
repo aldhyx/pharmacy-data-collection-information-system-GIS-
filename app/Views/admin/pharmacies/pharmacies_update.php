@@ -61,26 +61,26 @@
                     </div>
 
                     <div class="mb-3 row">
-                        <label for="" class="col-md-4 col-form-label">No. SIPA</label>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" id="" value="<?= $pharmacy['pharmacist_sipa_number']; ?>" required name="pharmacist_sipa_number">
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
                         <label for="" class="col-md-4 col-form-label">No. SIA</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" id="" value="<?= $pharmacy['sia_number']; ?>" required name="sia_number">
                         </div>
                     </div>
 
+
                     <div class="mb-3 row">
-                        <label for="" class="col-md-4 col-form-label">Berakhir Izin - SIA</label>
+                        <label for="" class="col-md-4 col-form-label">No. SIPA</label>
                         <div class="col-md-8">
-                            <input type="date" class="form-control" id="" value="<?= $pharmacy['sia_expiration_date']; ?>" required name="sia_expiration_date">
+                            <input type="text" class="form-control" id="" value="<?= $pharmacy['sipa_number']; ?>" required name="sipa_number">
                         </div>
                     </div>
 
+                    <div class="mb-3 row">
+                        <label for="" class="col-md-4 col-form-label">Berakhir Izin - SIPA</label>
+                        <div class="col-md-8">
+                            <input type="date" class="form-control" id="" value="<?= $pharmacy['sipa_expiration_date']; ?>" required name="sipa_expiration_date">
+                        </div>
+                    </div>
                     <div class="mb-3 row">
                         <label for="" class="col-md-4 col-form-label">Alamat</label>
                         <div class="col-md-8">

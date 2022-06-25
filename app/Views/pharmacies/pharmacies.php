@@ -62,20 +62,22 @@
                                         </p>
 
                                         <p>
-                                            Nama Apoteker: <?= $pharmacy['pharmacist_name']; ?>
-                                        </p>
-
-                                        <p>
-                                            SIPA: <?= $pharmacy['pharmacist_sipa_number']; ?>
-                                        </p>
-
-                                        <p>
                                             No. SIA: <?= $pharmacy['sia_number']; ?>
                                         </p>
 
                                         <p>
-                                            Masa Izin: <?= $pharmacy['sia_expiration_date']; ?>
+                                            Nama Apoteker: <?= $pharmacy['pharmacist_name']; ?>
                                         </p>
+
+                                        <p>
+                                            SIPA: <?= $pharmacy['sipa_number']; ?>
+                                        </p>
+
+                                        <p>
+                                            Berakhir Izin SIPA: <?= $pharmacy['sipa_expiration_date']; ?>
+                                        </p>
+
+
                                     </div>
                                 </div>
                             </div>
