@@ -23,24 +23,6 @@
 
     <div class="col-12 p-4 bg-body rounded shadow-sm my-2">
         <div class="row">
-            <div class="col-12 mb-2">
-                <div class="d-flex flex-column flex-lg-row gap-4">
-                    <?php if (count($districts) > 0) : ?>
-                        <div class="input-group" style="max-width: 300px">
-                            <input type="search" class="form-control border-end-0" name="search" placeholder="Pencarian" aria-label="" aria-describedby="">
-                            <span class="input-group-text bg-white" id="">
-                                <i class="fa fa-search"></i>
-                            </span>
-                        </div>
-                        <div class="btn-group" r gap-4ole="group" aria-label="">
-                            <button type="button" class="btn btn-secondary px-4 fw-bold text-uppercase btn__export" data-target="pdf">PDF</button>
-                            <button type="button" class="btn btn-secondary px-4 fw-bold text-uppercase btn__export" data-target="excel">Excel</button>
-                            <button type="button" class="btn btn-secondary px-4 fw-bold text-uppercase btn__export" data-target="print">Print</button>
-                        </div>
-                    <?php endif ?>
-
-                </div>
-            </div>
 
             <div class="col-12">
                 <table class="table table-hover table-bordered" id="data-table">
@@ -103,41 +85,6 @@
         <'row mb-md-2'<'col-sm-12 d-none'lfB>>
         <'row no-gutters table-responsive'<'col-sm-12'rt>>
         <'row'<'col-sm-5 my-3 mb-md-0'i><'col-sm-7 mt-0 mt-md-3'p>>`,
-        buttons: [{
-                extend: 'pdfHtml5',
-                text: 'Pdf',
-                orientation: 'potrait',
-                download: 'open',
-                pageSize: 'Legal',
-                exportOptions: {
-                    columns: [0, 1, 2]
-                },
-                customize: function(doc) {
-                    doc.content[1].table.widths = Array(doc.content[1].table.body[0]
-                        .length +
-                        1).join('*').split('');
-                    doc.styles.title = {
-                        alignment: 'left',
-                        fontSize: 20
-                    };
-                    doc.defaultStyle.alignment = 'left';
-                    doc.styles.tableHeader.alignment = 'left';
-                }
-            },
-            {
-                extend: 'excelHtml5',
-                text: 'Excel',
-                exportOptions: {
-                    columns: [0, 1, 2]
-                }
-            }, {
-                extend: 'print',
-                text: 'Print',
-                exportOptions: {
-                    columns: [0, 1, 2]
-                },
-            },
-        ]
     });
 
 
