@@ -57,6 +57,17 @@
 
         </div>
 
+        <div class="col-md-4 mb-3">
+            <select name="districts" id="districts" class="form-select" disabled>
+                <option value="all" <?php if (!$did) : ?> selected="selected" <?php endif; ?>>Semua Kecamatan</option>
+                <?php
+                foreach ($districts as $district) : ?>
+                    <option value="<?= $district['id']; ?>" <?php if ($did && $did == $district['id']) : ?> selected="selected" <?php endif; ?>>
+                        Kecamatan <?= $district['name']; ?>
+                    </option>
+                <?php endforeach ?>
+            </select>
+        </div>
 
         <div class="col-12 mb-3">
             <div id="maps-container">
@@ -95,6 +106,7 @@
 
     setTimeout(function() {
         $('.map-loading').remove();
+        $('#districts').removeAttr('disabled');
     }, 3000);
 
     let districtGeo = <?= json_encode($geojson)  ?>;
@@ -172,5 +184,16 @@
             }).addTo(map);
         }
     }
+
+    $('#districts').on('change', function(e) {
+        const val = e.target.value;
+
+        if (val !== 'all' && Number(val)) {
+            window.location.href = window.location.origin + window.location.pathname + '?did=' + val;
+        } else {
+            window.location.href = window.location.origin + window.location.pathname;
+
+        }
+    });
 </script>
 <?= $this->endSection('script') ?>

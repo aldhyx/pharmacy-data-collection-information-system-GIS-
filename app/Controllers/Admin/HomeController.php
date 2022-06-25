@@ -15,12 +15,21 @@ class HomeController extends BaseController
     }
     public function index()
     {
-        $districtData = $this->model->getWithTotalPharmacies()->getResultArray();
+        $did = $this->request->getVar('did');
+        if ($did) {
+            $districtData = $this->model->getWithTotalPharmacies($did)->getResultArray();
+        } else {
+            $districtData = $this->model->getWithTotalPharmacies()->getResultArray();
+        }
+
+        $districts = $this->model->findAll();
         $pharmacies = $this->modelPharmacies->findAll();
 
         return view('admin/home/home', [
             'geojson' => $districtData,
             'pharmacies' => $pharmacies,
+            'districts' => $districts,
+            'did' => $did
         ]);
     }
 }

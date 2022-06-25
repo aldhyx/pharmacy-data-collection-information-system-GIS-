@@ -104,8 +104,6 @@
 
     let districtGeo = <?= json_encode($geojson)  ?>;
     let pharmaciesData = <?= json_encode($pharmacies)  ?>;
-    console.log("🚀 ~ file: maps.php ~ line 107 ~ pharmaciesData", pharmaciesData)
-
 
     let map = L.map('maps-container', {}).setView([-10.178757, 123.597603], 12);
 
