@@ -49,14 +49,13 @@
                         <tr>
                             <th scope="col">No.</th>
                             <th scope="col">Kecamatan</th>
-                            <th scope="col">Nama Apotek</th>
-                            <th scope="col">No. SIA</th>
-                            <th scope="col">Nama Apoteker</th>
-                            <th scope="col">No. SIPA</th>
-                            <th scope="col">Berakhir Izin SIPA</th>
+                            <th scope="col" style="white-space: nowrap">Nama Apotek</th>
+                            <th scope="col" style="white-space: nowrap">No. SIA</th>
+                            <th scope="col" style="white-space: nowrap">Nama Apoteker</th>
+                            <th scope="col" style="white-space: nowrap">No. SIPA</th>
+                            <th scope="col" style="white-space: nowrap">Berakhir Izin SIPA</th>
                             <th scope="col">Alamat</th>
-                            <th scope="col">Longitude</th>
-                            <th scope="col">Latitude</th>
+                            <th scope="col">LongLat</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
@@ -74,8 +73,10 @@
                                 <td><?= $pharmacy['sipa_number']; ?></td>
                                 <td><?= $pharmacy['sipa_expiration_date']; ?></td>
                                 <td><?= $pharmacy['address']; ?></td>
-                                <td><?= $pharmacy['longitude']; ?></td>
-                                <td><?= $pharmacy['latitude']; ?></td>
+                                <td>
+                                    <p>Longitude: <?= $pharmacy['longitude']; ?></p>
+                                    <p>Latitude: <?= $pharmacy['latitude']; ?></p>
+                                </td>
                                 <td>
                                     <div class="btn-group" role="group" aria-label="">
                                         <a href="<?= route_to('adminPharmaciesUpdate', $pharmacy["id"]); ?>" class="btn btn-secondary d-inline-block me-2 rounded">
@@ -116,7 +117,7 @@
     </script>
 <?php endif; ?>
 <script>
-    $('#data-table').DataTable({
+    const dataTable = $('#data-table').DataTable({
         language: window.dataTableId,
         pagingType: "simple",
         pageLength: 10,
@@ -161,6 +162,9 @@
         ]
     });
 
+    $('input[name="search"]').on('change', function(e) {
+        dataTable.search(this.value).draw()
+    })
 
     $(document).on('click', '.btn__export', function(e) {
         e.stopPropagation();
